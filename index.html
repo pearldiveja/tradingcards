@@ -66,5 +66,60 @@
             document.getElementById(stepId).classList.remove('hidden');
         }
     </script>
+    <!-- Pokémon Card Steps -->
+<div id="pokemon-step1" class="step hidden">
+    <h2>Pokémon Card: Age Check</h2>
+    <p>When was the card produced?</p>
+    <button class="option" onclick="showStep('pokemon-90s')">1990s (Base Set, Jungle, Fossil, etc.)</button>
+    <button class="option" onclick="showStep('pokemon-2000s')">2000-2010</button>
+    <button class="option" onclick="showStep('pokemon-modern')">2011-Present</button>
+    <button class="option" onclick="showStep('pokemon-identify-age')">Not Sure</button>
+    <button class="back-button" onclick="goToMainMenu()">Back to Main Menu</button>
+</div>
+
+<div id="pokemon-90s" class="step hidden">
+    <h2>Vintage Pokémon Card (1990s)</h2>
+    <p>These cards have high potential value. Check for these features:</p>
+    <ul>
+        <li>First Edition Stamp (small "1" in a circle on the left side of the card)</li>
+        <li>Shadowless (no shadow around the image box)</li>
+        <li>Holographic (shiny/reflective image)</li>
+        <li>Condition (corners, edges, scratches)</li>
+    </ul>
+    <button class="option" onclick="showStep('pokemon-high-value')">First Edition Holographic</button>
+    <button class="option" onclick="showStep('pokemon-high-value')">Shadowless Holographic</button>
+    <button class="option" onclick="showStep('pokemon-medium-value')">Regular Holographic</button>
+    <button class="option" onclick="showStep('pokemon-check-rarity')">Non-Holographic</button>
+    <button class="back-button" onclick="showStep('pokemon-step1')">Back</button>
+</div>
+
+<!-- Result pages -->
+<div id="pokemon-high-value" class="step hidden">
+    <h2>High Value Pokémon Card!</h2>
+    <div class="result">
+        <p>This card has significant potential value! Consider:</p>
+        <ol>
+            <li>Getting it professionally graded by PSA, BGS, or SGC</li>
+            <li>Researching recent sales of similar cards</li>
+            <li>Listing it individually on eBay or TCGPlayer</li>
+            <li>Protecting it in a sleeve and toploader</li>
+        </ol>
+    </div>
+    <button class="back-button" onclick="goToMainMenu()">Start Over</button>
+</div>
+
+<div id="pokemon-medium-value" class="step hidden">
+    <h2>Medium Value Pokémon Card</h2>
+    <div class="result">
+        <p>This card has moderate value potential. Consider:</p>
+        <ol>
+            <li>Checking recent sales on eBay or TCGPlayer</li>
+            <li>Listing individually if worth more than $10</li>
+            <li>Protecting in a sleeve and toploader</li>
+        </ol>
+    </div>
+    <button class="back-button" onclick="goToMainMenu()">Start Over</button>
+</div>
+
 </body>
 </html>
