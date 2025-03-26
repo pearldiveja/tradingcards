@@ -4,122 +4,185 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trading Card Value Guide</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .step {
-            margin-bottom: 30px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-        }
-        .title {
-            text-align: center;
-            color: #2c3e50;
-        }
-        .option {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            text-align: left;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .option:hover {
-            background-color: #e9ecef;
-        }
-        .hidden {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1 class="title">TRADING CARD VALUE GUIDE</h1>
     
-    <div id="step1" class="step">
-        <h2>STEP 1: What type of trading card do you have?</h2>
-        <button class="option" onclick="showStep('pokemon-step1')">Pokémon Cards</button>
-        <button class="option" onclick="showStep('mtg-step1')">Magic: The Gathering Cards</button>
-        <button class="option" onclick="showStep('basketball-step1')">Basketball Cards</button>
-        <button class="option" onclick="showStep('baseball-step1')">Baseball Cards</button>
-        <button class="option" onclick="showStep('other-step1')">Other Trading Cards</button>
+    <div id="main-menu" class="step">
+        <h2>Select a Card Type:</h2>
+        <button class="option" onclick="showStep('pokemon-menu')">Pokémon Cards</button>
+        <button class="option" onclick="showStep('mtg-menu')">Magic: The Gathering Cards</button>
+        <button class="option" onclick="showStep('basketball-menu')">Basketball Cards</button>
+        <button class="option" onclick="showStep('baseball-menu')">Baseball Cards</button>
     </div>
 
-    <!-- Add more steps here -->
-    
-    <script>
-        function showStep(stepId) {
-            // Hide all steps
-            document.querySelectorAll('.step').forEach(step => {
-                step.classList.add('hidden');
-            });
+    <!-- Pokémon Section -->
+    <div id="pokemon-menu" class="step hidden">
+        <h2>Pokémon Cards</h2>
+        <button class="option" onclick="showStep('pokemon-tutorial')">How to ID Valuable Pokémon Cards</button>
+        <button class="option" onclick="showStep('pokemon-search')">Search a Pokémon Card</button>
+        <button class="back-button" onclick="showStep('main-menu')">Back to Main Menu</button>
+    </div>
+
+    <!-- Pokémon Tutorial Section -->
+    <div id="pokemon-tutorial" class="step hidden">
+        <h2>How to ID Valuable Pokémon Cards</h2>
+        <p>Look for these key indicators of potentially valuable cards:</p>
+        
+        <div class="tutorial-section">
+            <h3>STEP 1: Check for Age Indicators</h3>
+            <ul>
+                <li>"©1995, 96, 98, 99 Nintendo" at the bottom: Vintage card (highest potential value)</li>
+                <li>"Wizards of the Coast" at the bottom: Early English card (1999-2003)</li>
+                <li>No "Wizards of the Coast": Post-2003 card</li>
+            </ul>
+        </div>
+        
+        <div class="tutorial-section">
+            <h3>STEP 2: Look for Special Markings</h3>
+            <ul>
+                <li>First Edition stamp (small "1" in a circle): Significantly increases value</li>
+                <li>Shadowless (no shadow around image box): Early print run, higher value</li>
+                <li>Holographic/shiny artwork: Generally more valuable than non-holos</li>
+            </ul>
+        </div>
+        
+        <div class="tutorial-section">
+            <h3>STEP 3: Check Rarity Symbol</h3>
+            <ul>
+                <li>Star symbol: Rare card</li>
+                <li>Diamond symbol: Uncommon card</li>
+                <li>Circle symbol: Common card</li>
+                <li>Special symbols (H, ex, GX, V, etc.): Ultra Rare cards</li>
+            </ul>
+        </div>
+        
+        <div class="tutorial-section">
+            <h3>STEP 4: Assess Condition</h3>
+            <ul>
+                <li>Near Mint: Sharp corners, clean surface, no scratches</li>
+                <li>Lightly Played: Minor edge wear, slight scratching</li>
+                <li>Played: Noticeable wear, edge whitening</li>
+                <li>Heavily Played: Significant wear, creases, scratches</li>
+            </ul>
+        </div>
+        
+        <button class="option" onclick="showStep('pokemon-vintage')">Vintage Card Value Guide (1996-2003)</button>
+        <button class="option" onclick="showStep('pokemon-modern')">Modern Card Value Guide (2003-Present)</button>
+        <button class="back-button" onclick="showStep('pokemon-menu')">Back</button>
+    </div>
+
+    <!-- Pokémon Search Section -->
+    <div id="pokemon-search" class="step hidden">
+        <h2>Search Pokémon Card Value</h2>
+        <p>Enter card details to find information and estimated value:</p>
+        
+        <div class="search-form">
+            <div class="form-group">
+                <label for="pokemon-name">Pokémon Name:</label>
+                <input type="text" id="pokemon-name" placeholder="e.g., Charizard, Pikachu">
+            </div>
             
-            // Show the selected step
-            document.getElementById(stepId).classList.remove('hidden');
-        }
-    </script>
-    <!-- Pokémon Card Steps -->
-<div id="pokemon-step1" class="step hidden">
-    <h2>Pokémon Card: Age Check</h2>
-    <p>When was the card produced?</p>
-    <button class="option" onclick="showStep('pokemon-90s')">1990s (Base Set, Jungle, Fossil, etc.)</button>
-    <button class="option" onclick="showStep('pokemon-2000s')">2000-2010</button>
-    <button class="option" onclick="showStep('pokemon-modern')">2011-Present</button>
-    <button class="option" onclick="showStep('pokemon-identify-age')">Not Sure</button>
-    <button class="back-button" onclick="goToMainMenu()">Back to Main Menu</button>
-</div>
-
-<div id="pokemon-90s" class="step hidden">
-    <h2>Vintage Pokémon Card (1990s)</h2>
-    <p>These cards have high potential value. Check for these features:</p>
-    <ul>
-        <li>First Edition Stamp (small "1" in a circle on the left side of the card)</li>
-        <li>Shadowless (no shadow around the image box)</li>
-        <li>Holographic (shiny/reflective image)</li>
-        <li>Condition (corners, edges, scratches)</li>
-    </ul>
-    <button class="option" onclick="showStep('pokemon-high-value')">First Edition Holographic</button>
-    <button class="option" onclick="showStep('pokemon-high-value')">Shadowless Holographic</button>
-    <button class="option" onclick="showStep('pokemon-medium-value')">Regular Holographic</button>
-    <button class="option" onclick="showStep('pokemon-check-rarity')">Non-Holographic</button>
-    <button class="back-button" onclick="showStep('pokemon-step1')">Back</button>
-</div>
-
-<!-- Result pages -->
-<div id="pokemon-high-value" class="step hidden">
-    <h2>High Value Pokémon Card!</h2>
-    <div class="result">
-        <p>This card has significant potential value! Consider:</p>
-        <ol>
-            <li>Getting it professionally graded by PSA, BGS, or SGC</li>
-            <li>Researching recent sales of similar cards</li>
-            <li>Listing it individually on eBay or TCGPlayer</li>
-            <li>Protecting it in a sleeve and toploader</li>
-        </ol>
+            <div class="form-group">
+                <label for="set-name">Set Name (if known):</label>
+                <input type="text" id="set-name" placeholder="e.g., Base Set, Jungle">
+            </div>
+            
+            <div class="form-group">
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" placeholder="e.g., 4/102">
+            </div>
+            
+            <button class="search-button" onclick="searchPokemonCard()">Search Card</button>
+        </div>
+        
+        <div id="search-results" class="search-results hidden">
+            <!-- Results will be displayed here -->
+        </div>
+        
+        <button class="back-button" onclick="showStep('pokemon-menu')">Back</button>
     </div>
-    <button class="back-button" onclick="goToMainMenu()">Start Over</button>
-</div>
 
-<div id="pokemon-medium-value" class="step hidden">
-    <h2>Medium Value Pokémon Card</h2>
-    <div class="result">
-        <p>This card has moderate value potential. Consider:</p>
-        <ol>
-            <li>Checking recent sales on eBay or TCGPlayer</li>
-            <li>Listing individually if worth more than $10</li>
-            <li>Protecting in a sleeve and toploader</li>
-        </ol>
+    <!-- Additional Pokémon Tutorial Sections -->
+    <div id="pokemon-vintage" class="step hidden">
+        <h2>Vintage Pokémon Card Value Guide (1996-2003)</h2>
+        
+        <div class="tutorial-section">
+            <h3>Highest Value Vintage Cards:</h3>
+            <ul>
+                <li>First Edition Base Set Charizard: $5,000-$500,000 (condition dependent)</li>
+                <li>First Edition Base Set Blastoise: $1,000-$50,000</li>
+                <li>First Edition Base Set Venusaur: $800-$40,000</li>
+                <li>Shadowless Charizard: $1,000-$50,000</li>
+                <li>First Edition Lugia (Neo Genesis): $500-$80,000</li>
+            </ul>
+        </div>
+        
+        <div class="tutorial-section">
+            <h3>Key Vintage Sets (in order of value):</h3>
+            <ol>
+                <li>Base Set (no symbol, numbered X/102)</li>
+                <li>Neo Genesis (numbered X/111)</li>
+                <li>Team Rocket (R symbol, numbered X/82)</li>
+                <li>Jungle (flower symbol, numbered X/64)</li>
+                <li>Fossil (fossil symbol, numbered X/62)</li>
+            </ol>
+        </div>
+        
+        <button class="back-button" onclick="showStep('pokemon-tutorial')">Back</button>
     </div>
-    <button class="back-button" onclick="goToMainMenu()">Start Over</button>
-</div>
 
+    <div id="pokemon-modern" class="step hidden">
+        <h2>Modern Pokémon Card Value Guide (2003-Present)</h2>
+        
+        <div class="tutorial-section">
+            <h3>Highest Value Modern Cards:</h3>
+            <ul>
+                <li>Alternate Art Cards (especially Charizard, Umbreon, Rayquaza): $100-$1,000+</li>
+                <li>Gold Star Cards (2004-2007): $500-$5,000+</li>
+                <li>Secret Rare Cards (numbered higher than set total): $20-$500</li>
+                <li>Full Art Trainer Cards: $10-$200</li>
+                <li>Rainbow Rare/Hyper Rare Cards: $15-$300</li>
+            </ul>
+        </div>
+        
+        <div class="tutorial-section">
+            <h3>Key Modern Sets (in order of value):</h3>
+            <ol>
+                <li>EX Series (especially FireRed & LeafGreen, Team Rocket Returns)</li>
+                <li>Diamond & Pearl Series (especially Stormfront)</li>
+                <li>Hidden Fates</li>
+                <li>Evolving Skies</li>
+                <li>Brilliant Stars</li>
+            </ol>
+        </div>
+        
+        <button class="back-button" onclick="showStep('pokemon-tutorial')">Back</button>
+    </div>
+
+    <!-- MTG Section Placeholder -->
+    <div id="mtg-menu" class="step hidden">
+        <h2>Magic: The Gathering Cards</h2>
+        <p>This section is under development. Check back soon!</p>
+        <button class="back-button" onclick="showStep('main-menu')">Back to Main Menu</button>
+    </div>
+
+    <!-- Basketball Section Placeholder -->
+    <div id="basketball-menu" class="step hidden">
+        <h2>Basketball Cards</h2>
+        <p>This section is under development. Check back soon!</p>
+        <button class="back-button" onclick="showStep('main-menu')">Back to Main Menu</button>
+    </div>
+
+    <!-- Baseball Section Placeholder -->
+    <div id="baseball-menu" class="step hidden">
+        <h2>Baseball Cards</h2>
+        <p>This section is under development. Check back soon!</p>
+        <button class="back-button" onclick="showStep('main-menu')">Back to Main Menu</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="api-integration.js"></script>
 </body>
 </html>
