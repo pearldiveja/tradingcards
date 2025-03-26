@@ -51,7 +51,7 @@ function searchPokemonCard() {
 
 function displayCardResults(cardData) {
     const resultsDiv = document.getElementById("search-results");
-    
+
     if (!cardData || cardData.length === 0) {
         resultsDiv.innerHTML = "<p>No cards found. Try adjusting your search terms.</p>";
         return;
@@ -67,4 +67,3 @@ function displayCardResults(cardData) {
             </div>`;
     
 }
-``
