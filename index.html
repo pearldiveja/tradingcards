@@ -25,8 +25,53 @@
         <button class="back-button" onclick="showStep('main-menu')">Back to Main Menu</button>
     </div>
 
-    <!-- Other sections... -->
+    <!-- Pokémon Tutorial Section -->
+    <div id="pokemon-tutorial" class="step hidden">
+        <h2>How to ID Valuable Pokémon Cards</h2>
+        <p>Look for these key indicators of potentially valuable cards:</p>
+        
+        <div class="tutorial-section">
+            <h3>STEP 1: Check for Age Indicators</h3>
+            <ul>
+                <li>"©1995, 96, 98, 99 Nintendo" at the bottom: Vintage card (highest potential value)</li>
+                <li>"Wizards of the Coast" at the bottom: Early English card (1999-2003)</li>
+                <li>No "Wizards of the Coast": Post-2003 card</li>
+            </ul>
+        </div>
 
+        <!-- Additional tutorial sections omitted for brevity -->
+
+        <button class="back-button" onclick="showStep('pokemon-menu')">Back</button>
+    </div>
+
+    <!-- Pokémon Search Section -->
+    <div id="pokemon-search" class="step hidden">
+        <h2>Search Pokémon Card Value</h2>
+        <p>Enter card details to find information and estimated value:</p>
+
+        <div class="search-form">
+            <label for="pokemon-name">Pokémon Name:</label>
+            <input type="text" id="pokemon-name" placeholder="e.g., Charizard, Pikachu">
+
+            <label for="set-name">Set Name (if known):</label>
+            <input type="text" id="set-name" placeholder="e.g., Base Set, Jungle">
+
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" placeholder="e.g., 4/102">
+
+            <button class="search-button" onclick="searchPokemonCard()">Search Card</button>
+        </div>
+
+        <!-- Results displayed here -->
+        <div id="search-results" class="search-results hidden"></div>
+
+        <button class="back-button" onclick="showStep('pokemon-menu')">Back</button>
+    </div>
+
+    <!-- Other sections omitted for brevity -->
+
+    <!-- Scripts -->
     <script src="script.js"></script>
+    <script src="api-integration.js"></script>
 </body>
 </html>
